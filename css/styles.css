@@ -1,0 +1,93 @@
+
+.my-container{
+  width: 90%;
+  margin: 0px auto;
+}
+
+h1{
+     font-family: 'Fjalla One', sans-serif;
+     text-align: center;
+     font-size: 65px;
+}
+.search-button{
+  color: white;
+  background-color: green;
+}
+@import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+// colors
+$color-one: #2c3e50;
+$btn-colors: (
+	"green": "#2ecc71",
+);
+
+.btn {
+	display: inline-block;
+	line-height: 35px;
+	margin: 8px;
+	padding: 0 15px;
+	font-size: 15px;
+	position: relative;
+	opacity: .999;
+	border-radius: 3px;
+	@extend .animate;
+}
+.btn-border-rev-o {
+	background-color: transparent;
+	border: 1px solid #d0d0d0;
+	color: #B8B8B8;
+
+	&:before,
+	&:after {
+		content: '';
+		border-style: solid;
+		position: absolute;
+		z-index: 5;
+		border-radius: 3px;
+		box-sizing: content-box;
+		@extend .animate;
+	}
+
+	&:before {
+		width: 0;
+		height: 100%;
+		border-width: 1px 0 1px 0;
+		top: -1px;
+		right: 0;
+		transition-delay: 0.05s;
+	}
+
+	&:after {
+		width: 100%;
+		height: 0;
+		border-width: 0 1px 0 1px;
+		bottom: 0;
+		left: -1px;
+	}
+
+	&:hover {
+
+		&:before {
+			width: 100%;
+		}
+
+		&:after {
+			height: 100%;
+		}
+	}
+
+	@each $name,$hex in $btn-colors {
+
+		&.btn-#{$name} {
+
+			&:before,
+			&:after {
+				border-color: #{$hex};
+			}
+
+			&:hover {
+				color: #{$hex};
+			}
+		}
+	}
+}
